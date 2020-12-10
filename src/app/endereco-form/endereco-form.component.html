@@ -1,0 +1,62 @@
+<div class="container">
+  <div [hidden]="submeteu">
+    <h1>E-commerce - Formulário Cadastro de endereco</h1>
+    <form (ngSubmit)="submeterForm()" #enderecoForm="ngForm">
+    
+      <div class="form-group">
+        <label for="rua">Rua</label>
+        <input type="text" class="form-control" id="rua"
+               [(ngModel)]="endereco.rua" name="rua" #rua="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="nome">CEP</label>
+        <input type="text" class="form-control" id="cep"
+               [(ngModel)]="endereco.cep" name="cep" #cep="ngModel">
+      </div>
+
+
+     <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control" id="cidade"
+               [(ngModel)]="endereco.cidade" name="cidade" #cidade="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <input type="text" class="form-control" id="estado"
+               [(ngModel)]="endereco.estado" name="estado" #estado="ngModel">
+      </div>
+
+      <!-- Event Binding -->
+      <button type="submit" class="btn btn-success" [disabled]="!enderecoForm.form.valid" (click)="mostrarMensagem(); novoEndereco()">Cadastrar</button>
+      <button type="button" class="btn btn-default" (click)="limparFormulario(); enderecoForm.reset()">Limpar</button>
+    </form>
+  </div>
+<!-- interpolação -->
+  <div [hidden]="!submeteu">
+    <h2>Endereco cadastrado:</h2>
+    
+    <div class="row">
+      <div class="col-xs-3">Rua</div>
+      <div class="col-xs-9">{{ endereco.rua }}</div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-3">CEP</div>
+      <div class="col-xs-9">{{ endereco.cep }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Cidade</div>
+      <div class="col-xs-9">{{ endereco.cidade }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Estado</div>
+      <div class="col-xs-9">{{ endereco.estado }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submeteu=false">Editar</button>
+  </div>
+</div>

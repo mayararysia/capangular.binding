@@ -1,0 +1,74 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>E-commerce - Formulário Pedido do Cliente</h1>
+      <form (ngSubmit)="onSubmit()" #pedidoForm="ngForm">
+       
+        <div class="form-group">
+          <label for="cliente">Cliente</label>
+          <input type="text" class="form-control" id="cliente"
+                 required
+                 [(ngModel)]="model.cliente" name="cliente" #cliente="ngModel">
+          <div [hidden]="cliente.valid || cliente.pristine"
+               class="alert alert-danger">
+            Cliente é obrigatório
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="data">Data</label>
+          <input type="text" class="form-control" id="data"
+                 required
+                 [(ngModel)]="model.data" name="data" #data="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="produto">Produtos</label>
+          <select class="form-control" id="produto"
+                  required
+                  [(ngModel)]="model.produto" name="produto"
+                  #produto="ngModel">
+            <option *ngFor="let produto of produtos" [value]="produto">{{produto}}</option>
+          </select>
+          <div [hidden]="produto.valid || produto.pristine" class="alert alert-danger">
+            Produto é obrigatório
+          </div>
+        </div>
+        <!-- Property Binding - em alíquota -->
+        <div class="form-group">
+          <input type="text" class="aliquota" for="aliquota" [value]="informativoAliquota" readonly>
+          <br/>
+          <label class="label-frete" for="freteTarifado">Deseja ter o frete tarifado? 15%</label>
+          <input type="checkbox" id="freteTarifado" name="freteTarifado"  [(ngModel)]="model.freteTarifado" value="true">
+         </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!pedidoForm.form.valid">Submeter</button>
+        <button type="button" class="btn btn-default" (click)="newPedido(); pedidoForm.reset()">Novo Pedido</button>
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <h2>Pedidos que você enviou:</h2>
+      
+      <div class="row">
+        <div class="col-xs-3">Cliente</div>
+        <div class="col-xs-9">{{ model.cliente }}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-3">Data</div>
+        <div class="col-xs-9">{{ model.data }}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-3">Produto</div>
+        <div class="col-xs-9">{{ model.produto }}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-3">Frete Tarifado</div>
+        <div class="col-xs-9">{{ model.freteTarifado }}</div>
+      </div>
+      <br>
+      <button class="btn btn-primary" (click)="submitted=false">Editar</button>
+    </div>
+  </div>
