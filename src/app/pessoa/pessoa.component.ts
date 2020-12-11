@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Pessoa } from './pessoa';
+import { Pessoa } from './../model/pessoa.model';
 
 @Component({
-  selector: 'app-pessoa-create',
-  templateUrl: './pessoa-create.component.html',
-  styleUrls: ['./pessoa-create.component.css']
+  selector: 'app-pessoa',
+  templateUrl: './pessoa.component.html',
+  styleUrls: ['./pessoa.component.css']
 })
 
-export class PessoaCreateComponent implements OnInit {
+export class PessoaComponent implements OnInit {
   // @Input decorator :conseguimos expor uma propriedade (ex, nome) para um seletor (a tag html)
   @Input() nome: string = '';
   @Input() cpf: string = '';

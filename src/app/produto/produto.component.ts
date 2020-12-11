@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Categoria } from '../categoria-form/categoria';
-import { Produto } from './produto';
+import { Categoria } from './../model/categoria.model';
+import { Produto } from './../model/produto.model';
 
 @Component({
-  selector: 'app-produto-create',
-  templateUrl: './produto-create.component.html',
-  styleUrls: ['./produto-create.component.css']
+  selector: 'app-produto',
+  templateUrl: './produto.component.html',
+  styleUrls: ['./produto.component.css']
 })
 
-export class ProdutoCreateComponent implements OnInit {
+export class ProdutoComponent implements OnInit {
   // @Input decorator :conseguimos expor uma propriedade (ex, nome) para um seletor (a tag html)
   @Input() nome: string = '';
   @Input() preco: number = 0.0;
@@ -22,6 +22,7 @@ export class ProdutoCreateComponent implements OnInit {
   @Output() mostrarEventoProduto = new EventEmitter();
 
   submeteu = false;
+  title:string="E-commerce";
 
   produto: Produto = {
     nome: '',

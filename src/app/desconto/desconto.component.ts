@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Desconto } from './desconto';
+import { Desconto } from './../model/desconto.model';
 
 @Component({
   selector: 'app-desconto',

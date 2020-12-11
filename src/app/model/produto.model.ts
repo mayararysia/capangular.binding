@@ -1,5 +1,5 @@
-import { Categoria } from '../categoria-form/categoria';
-import { Fornecedor } from '../fornecedor-form/fornecedor';
+import { Categoria } from './categoria.model';
+import { Fornecedor } from './fornecedor.model';
 
 export interface Produto extends Fornecedor{
     nome?: string;

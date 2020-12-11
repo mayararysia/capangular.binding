@@ -1,0 +1,86 @@
+<div class="container">
+  <div [hidden]="submeteu">
+    <h1>{{ title }}</h1>
+    <form (ngSubmit)="submeterForm()" #clienteForm="ngForm">
+      <!-- Two-way Binding:
+      O ngModel é a representação de uma entidade 
+      ela pode ser um campo simples ou um objeto
+      é um binding de propriedade + um binding de evento -->
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <select class="form-control" id="nome"
+            required
+            [(ngModel)]="cliente.nome" name="nome" #nome="ngModel">
+             <option *ngFor="let mock_pessoa of mock_pessoas" [value]="mock_pessoa.nome">{{mock_pessoa.nome}}</option>
+        </select>
+        <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">
+         Nome do cliente é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <select class="form-control" id="cpf"
+            required
+            [(ngModel)]="cliente.cpf" name="cpf" #cpf="ngModel">
+             <option *ngFor="let mock_pessoa of mock_pessoas" [value]="mock_pessoa.cpf">{{mock_pessoa.cpf}}</option>
+        </select>
+        <div [hidden]="cpf.valid || cpf.pristine" class="alert alert-danger">
+         Nome do cliente é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="usuario">Usuário</label>
+        <input type="text" class="form-control" id="usuario"
+               required
+               [(ngModel)]="cliente.usuario" name="usuario" #usuario="ngModel">
+        <div [hidden]="usuario.valid || usuario.pristine"
+             class="alert alert-danger">
+          Usuário é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="text" class="form-control" id="senha"
+               required
+               [(ngModel)]="cliente.senha" name="senha" #senha="ngModel">
+        <div [hidden]="senha.valid || senha.pristine"
+             class="alert alert-danger">
+          Senha é obrigatório
+        </div>
+      </div>
+
+      <!-- Event Binding -->
+      <button type="submit" class="btn btn-success" [disabled]="!clienteForm.form.valid" (click)="mostrarMensagem(); novoCliente()">Cadastrar</button>
+      <button type="button" class="btn btn-default" (click)="limparFormulario(); clienteForm.reset()">Limpar</button>
+    </form>
+  </div>
+<!-- interpolação -->
+  <div [hidden]="!submeteu">
+    <h2>Cliente cadastrado:</h2>
+    
+    <div class="row">
+      <div class="col-xs-3">Nome</div>
+      <div class="col-xs-9">{{ cliente.nome }}</div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-3">CPF</div>
+      <div class="col-xs-9">{{ cliente.cpf }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Usuário</div>
+      <div class="col-xs-9">{{ cliente.usuario }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Senha</div>
+      <div class="col-xs-9">{{ cliente.senha }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submeteu=false">Editar</button>
+  </div>
+</div>

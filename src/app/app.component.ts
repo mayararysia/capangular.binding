@@ -5,7 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  title = 'ecommercev2';
+  title = 'E-commerce';
  
  
   mostrarMensagemSucesso(){

@@ -4,23 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
-import { PedidoFormComponent } from './pedido-form/pedido-form.component';
-import { PessoaCreateComponent } from './pessoa-create/pessoa-create.component';
-import { EnderecoFormComponent } from './endereco-form/endereco-form.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { EnderecoComponent } from './endereco/endereco.component';
 import { DescontoComponent } from './desconto/desconto.component';
-import { ProdutoCreateComponent } from './produto-create/produto-create.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { HomeComponent } from './home/home.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroFormComponent,
-    PedidoFormComponent,
-    PessoaCreateComponent,
-    EnderecoFormComponent,
+    PedidoComponent,
+    PessoaComponent,
+    EnderecoComponent,
     DescontoComponent,
-    ProdutoCreateComponent
+    ProdutoComponent,
+    HomeComponent,
+    ClienteComponent
 
   ],
   imports: [

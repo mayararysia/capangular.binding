@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Endereco } from './endereco';
+import { Endereco } from './../model/endereco.model';
 
 @Component({
-  selector: 'app-endereco-form',
-  templateUrl: './endereco-form.component.html',
-  styleUrls: ['./endereco-form.component.css']
+  selector: 'app-endereco',
+  templateUrl: './endereco.component.html',
+  styleUrls: ['./endereco.component.css']
 })
-export class EnderecoFormComponent implements OnInit {
+export class EnderecoComponent implements OnInit {
   // @Input decorator : conseguimos expor uma propriedade (ex, nome) para um seletor (a tag html)
   @Input() rua: string = '';
   @Input() cep: string = '';

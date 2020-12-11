@@ -1,6 +1,6 @@
 <div class="container">
     <div [hidden]="submeteu">
-      <h1>E-commerce - Formulário Cadastro de Produto</h1>
+      <h1>{{ title }} - Formulário Cadastro de Produto</h1>
       <form (ngSubmit)="submeterForm()" #produtoForm="ngForm">
         <!-- Two-way Binding:
         O ngModel é a representação de uma entidade 

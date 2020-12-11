@@ -1,0 +1,28 @@
+
+/* Flex Item */
+.item {
+	margin: 5px;
+	background: chocolate;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+	border: px solid #ccc;
+}
+
+
+h1 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: inherit;
+}
